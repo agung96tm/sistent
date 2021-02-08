@@ -1,0 +1,42 @@
+$space-size-0: 0 !default
+$space-size-1: 0.25rem !default
+$space-size-2: 0.5rem !default
+$space-size-3: 1rem !default
+$space-size-4: 1.5rem !default
+$space-size-5: 1.25rem !default
+$space-size-6: 1.5rem !default
+$space-size-7: 1.75rem !default
+$space-size-8: 2rem !default
+
+$space-sizes: ("0": $space-size-0, "1": $space-size-1, "2": $space-size-2, "3": $space-size-3, "4": $space-size-4, "5": $space-size-5, "6": $space-size-6, "7": $space-size-7, "8": $space-size-8) !default
+
+$space-shortcuts: ("margin": "m", "padding": "p") !default
+$space-directions: ("top": "t", "right": "r", "button": "b", "left": "l") !default
+$space-cartesian-x: "x" !default
+$space-cartesian-y: "y" !default
+
+
+@each $shortcut-key, $shortcut-value in $space-shortcuts
+
+  // all direction
+  @each $size-key, $size-value in $space-sizes
+    .#{$shortcut-value}--#{$size-key}
+      #{$shortcut-key}: #{$size-value} !important
+
+  // up, bottom, right, left
+  @each $size-key, $size-value in $space-sizes
+    @each $direct-key, $direct-value in $space-directions
+      .#{$shortcut-value}#{$direct-value}--#{$size-key}
+        #{$shortcut-key}-#{$direct-key}: #{$size-value} !important
+
+  // Cartesian X
+  @each $size-key, $size-value in $space-sizes
+    .#{$shortcut-value}#{$space-cartesian-x}--#{$size-key}
+      #{$shortcut-key}-top: #{$size-value} !important
+      #{$shortcut-key}-bottom: #{$size-value} !important
+
+  // Cartesian Y
+  @each $size-key, $size-value in $space-sizes
+    .#{$shortcut-value}#{$space-cartesian-y}--#{$size-key}
+      #{$shortcut-key}-right: #{$size-value} !important
+      #{$shortcut-key}-left: #{$size-value} !important
