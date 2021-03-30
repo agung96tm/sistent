@@ -1,4 +1,4 @@
-import "../src/css/sistent.css";
+import "../../src/css/sistent.css";
 import { createSpacing } from "./Helpers";
 
 // story

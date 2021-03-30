@@ -1,0 +1,27 @@
+.breadcrumb
+  list-style: none
+  padding: 0
+
+  .breadcrumb__item
+    display: contents
+
+    // content
+    *
+      font-size: 1rem
+      color: #999999
+      text-decoration: none
+
+      &:hover
+        color: #666666
+        text-decoration: none
+
+    // default separator
+    &:nth-child(n + 2)::before
+      content: '>'
+      margin: 0 10px 0 10px
+      color: #999
+
+    &:last-child
+      span,
+      a:not([href])
+        color: #666
