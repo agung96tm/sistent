@@ -10,7 +10,6 @@
   "scripts": {
     "compile": "gulp compile",
     "dev": "gulp dev",
-    "docs": "gulp docs",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

@@ -2,22 +2,27 @@ import "../../src/css/sistent.css";
 
 export default {
     title: 'Breadcrumb',
-    argTypes: { }
+    argTypes: { },
+    parameters: {
+        docs: {
+            page: null
+        }
+    },
 }
 
-const Template = ({...args}) => {
+const Template = () => {
     return `
         <ul class="breadcrumb">
-          <li class="breadcrumb__item">
+          <li class="item">
             <a href="#">Home</a>
           </li>
-          <li class="breadcrumb__item">
+          <li class="item">
             <a href="#">Documentation</a>
           </li>
-          <li class="breadcrumb__item">
-            <a href="#">Components</a>
+          <li class="item is-disabled">
+            <a href="https://www.google.com">Components</a>
           </li>
-          <li class="breadcrumb__item">
+          <li class="item">
             <span>Breadcrumb</span>
           </li>
         </ul>

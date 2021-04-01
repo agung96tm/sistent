@@ -1,8 +1,15 @@
 .breadcrumb
   list-style: none
-  padding: 0
+  margin: 0
+  padding: 0.4rem
 
-  .breadcrumb__item
+  // align
+  &.is-centered
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+  .item
     display: contents
 
     // content
@@ -15,6 +22,7 @@
         color: #666666
         text-decoration: none
 
+
     // default separator
     &:nth-child(n + 2)::before
       content: '>'
@@ -25,3 +33,18 @@
       span,
       a:not([href])
         color: #666
+
+    // disabled
+    &.is-disabled
+      cursor: default
+      pointer-events: none
+
+
+  // Variant Separators
+  &.has-arrow-separator
+    .item + .item:nth-child(n + 2)::before
+      content: "➞"
+
+  &.has-bullet-separator
+    .item + .item:nth-child(n + 2)::before
+      content: "•"
