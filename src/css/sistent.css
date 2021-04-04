@@ -726,7 +726,7 @@ template {
   list-style: none;
   margin: 0;
   padding: 0.4rem; }
-  .breadcrumb.is-centered {
+  .breadcrumb.is-center {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -735,6 +735,15 @@ template {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; }
+  .breadcrumb.is-right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end; }
   .breadcrumb .item {
     display: contents; }
     .breadcrumb .item * {
@@ -745,18 +754,32 @@ template {
         color: #666666;
         text-decoration: none; }
     .breadcrumb .item:nth-child(n + 2)::before {
-      content: '>';
+      content: "/";
       margin: 0 10px 0 10px;
       color: #999; }
     .breadcrumb .item:last-child span,
     .breadcrumb .item:last-child a:not([href]) {
-      color: #666; }
+      color: #666666; }
     .breadcrumb .item.is-disabled {
       cursor: default;
       pointer-events: none; }
-  .breadcrumb.has-arrow-separator .item + .item:nth-child(n + 2)::before {
+  .breadcrumb.has-arrow .item + .item:nth-child(n + 2)::before {
     content: "➞"; }
-  .breadcrumb.has-bullet-separator .item + .item:nth-child(n + 2)::before {
+  .breadcrumb.has-bullet .item + .item:nth-child(n + 2)::before {
     content: "•"; }
+  .breadcrumb.has-slash .item + .item:nth-child(n + 2)::before {
+    content: "/"; }
+  .breadcrumb.is-small {
+    font-size: 0.75rem; }
+    .breadcrumb.is-small .item > * {
+      font-size: 0.75rem; }
+  .breadcrumb.is-medium {
+    font-size: 1rem; }
+    .breadcrumb.is-medium .item > * {
+      font-size: 1rem; }
+  .breadcrumb.is-large {
+    font-size: 1.25rem; }
+    .breadcrumb.is-large .item > * {
+      font-size: 1.25rem; }
 
 /*# sourceMappingURL=../../scss */

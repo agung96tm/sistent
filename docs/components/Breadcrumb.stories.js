@@ -1,8 +1,27 @@
-import "../../src/css/sistent.css";
+import { createBreadcrumb } from "./Breadcrumb";
 
 export default {
     title: 'Breadcrumb',
-    argTypes: { },
+    argTypes: {
+        align: {
+            control: {
+                type: 'inline-radio',
+                options: ['is-left', 'is-center', 'is-right']
+            }
+        },
+        separator: {
+            control: {
+                type: 'inline-radio',
+                options: ['has-slash', 'has-arrow', 'has-bullet']
+            }
+        },
+        size: {
+            control: {
+                type: 'inline-radio',
+                options: ['is-small', 'is-medium', 'is-large']
+            }
+        }
+    },
     parameters: {
         docs: {
             page: null
@@ -10,23 +29,8 @@ export default {
     },
 }
 
-const Template = () => {
-    return `
-        <ul class="breadcrumb">
-          <li class="item">
-            <a href="#">Home</a>
-          </li>
-          <li class="item">
-            <a href="#">Documentation</a>
-          </li>
-          <li class="item is-disabled">
-            <a href="https://www.google.com">Components</a>
-          </li>
-          <li class="item">
-            <span>Breadcrumb</span>
-          </li>
-        </ul>
-    `
+const Template = ({ ...args }) => {
+    return createBreadcrumb(args);
 }
 
-export const Default = Template.bind({});
+export const Breadcrumb = Template.bind({});

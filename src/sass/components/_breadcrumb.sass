@@ -1,13 +1,29 @@
+$breadcrumb-separator-default: "/" !default
+$breadcrumb-separators: ("arrow": "➞", "bullet": "•", "slash": "/") !default
+
+$breadcrumb-item-color: #999999 !default
+$breadcrumb-item-active: #666666 !default
+$breadcrumb-item-hover-color: #666666 !default
+$breadcrumb-item-separator-color: #999 !default
+$breadcrumb-item-sizes: ("small": $size-small, "medium": $size-medium, "large": $size-large) !default
+
+
 .breadcrumb
   list-style: none
   margin: 0
   padding: 0.4rem
 
   // align
-  &.is-centered
+  &.is-center
     display: flex
     flex-wrap: wrap
     justify-content: center
+
+  &.is-right
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-end
+
 
   .item
     display: contents
@@ -15,24 +31,23 @@
     // content
     *
       font-size: 1rem
-      color: #999999
+      color: $breadcrumb-item-color
       text-decoration: none
 
       &:hover
-        color: #666666
+        color: $breadcrumb-item-hover-color
         text-decoration: none
 
-
-    // default separator
+    // separator
     &:nth-child(n + 2)::before
-      content: '>'
+      content: $breadcrumb-separator-default
       margin: 0 10px 0 10px
-      color: #999
+      color: $breadcrumb-item-separator-color
 
     &:last-child
       span,
       a:not([href])
-        color: #666
+        color: $breadcrumb-item-active
 
     // disabled
     &.is-disabled
@@ -40,11 +55,15 @@
       pointer-events: none
 
 
-  // Variant Separators
-  &.has-arrow-separator
-    .item + .item:nth-child(n + 2)::before
-      content: "➞"
+  // Separators
+  @each $key, $value in $breadcrumb-separators
+    &.has-#{$key}
+      .item + .item:nth-child(n + 2)::before
+        content: $value
 
-  &.has-bullet-separator
-    .item + .item:nth-child(n + 2)::before
-      content: "•"
+  // Sizes
+  @each $key, $value in $breadcrumb-item-sizes
+    &.is-#{$key}
+      font-size: $value
+      .item > *
+        font-size: $value
